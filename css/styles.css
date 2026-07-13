@@ -789,6 +789,60 @@ a { color: inherit; }
   text-decoration: underline;
 }
 
+.map-card {
+  margin: 1.75rem auto 0;
+  max-width: 640px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  padding: 0.6rem;
+}
+
+/* Rompe el max-width de .section-alt para ir de borde a borde,
+   sin tocar la regla compartida que usan las demás secciones. */
+.map-card-full {
+  max-width: none;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.map-subtitle {
+  text-align: center;
+  color: var(--color-text-soft);
+  font-size: 0.95rem;
+  margin: 0;
+  padding: 1rem 1.25rem 0.75rem;
+}
+
+.map-card-full .map-embed {
+  border-radius: 0;
+  aspect-ratio: auto;
+  height: 30vh;
+  min-height: 220px;
+}
+
+.map-embed {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  height: auto;
+  border: 0;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+.map-directions-btn {
+  margin: 0.9rem auto 0.35rem;
+  display: block;
+  width: fit-content;
+}
+
 /* ===================== FOOTER ===================== */
 
 .site-footer {
