@@ -258,15 +258,10 @@
   /* -----------------------------------------------------------
      10. CONSTRUYE EL MENSAJE DE WHATSAPP CON LA SELECCIÓN ACTUAL
   ----------------------------------------------------------- */
-  const SOFA_STATE_LABELS = {
-    cerrado: "posición cerrado",
-    media: "posición extendido",
-    completa: "posición cama completa"
-  };
-
   // Mensaje CON el detalle de la selección actual — solo para el botón
-  // debajo del configurador. Solo incluye lo que aplica a cada producto
-  // (p.ej. la cama no tiene "posición", eso es solo del sofá).
+  // debajo del configurador. No incluye la posición del sofá (cerrado/media/
+  // completa): es solo una vista previa del configurador, no algo que tenga
+  // sentido pedir por WhatsApp.
   function buildWhatsappMessage() {
     const color = FABRICS[state.fabricType][state.colorIndex];
     const fabricLabel = capitalize(state.fabricType);
@@ -276,7 +271,6 @@
 
     if (state.product === "sofa") {
       parts.push("Sofá cama");
-      parts.push(SOFA_STATE_LABELS[state.sofaState]);
       parts.push("tela " + fabricLabel);
       parts.push("color " + color.name);
     } else {
