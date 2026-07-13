@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taller Palma — Sofás Cama y Camas Tapizadas a la Medida</title>
+<meta name="description" content="Taller Palma: sofás cama y camas tapizadas hechos a mano en Costa Rica. Elija su tela, color y estilo. Entrega a domicilio, pago contra entrega.">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ===================== HEADER / HERO ===================== -->
+<header class="hero">
+  <nav class="navbar">
+    <div class="logo">Taller Palma</div>
+    <a class="nav-cta" href="#contacto">Escribir por WhatsApp</a>
+  </nav>
+
+  <!-- Layout asimétrico: texto a la izquierda, foto a la derecha (con
+       degradado que la funde hacia el fondo café), en vez de todo centrado
+       y apilado. En mobile la foto pasa a fondo completo con overlay. -->
+  <div class="hero-grid">
+    <div class="hero-content">
+      <h1>Taller Palma</h1>
+      <p class="tagline">Sofás cama y camas tapizadas hechos a mano, a la medida de su casa.</p>
+      <a href="#configurador" class="btn btn-primary btn-large">Arme el suyo</a>
+    </div>
+
+    <!-- Foto real (fondo removido) con degradado café que la funde con el hero -->
+    <div class="hero-image" role="img" aria-label="Sofá cama artesanal de Taller Palma"></div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== GALERÍA ===================== -->
+  <section id="galeria" class="section">
+    <h2>Nuestros trabajos</h2>
+    <p class="section-subtitle">Algunos de los sofás cama y camas tapizadas que hemos entregado a clientes.</p>
+
+    <div class="gallery-grid">
+      <!-- Reemplace cada imagen por fotos reales del producto, mismo nombre de archivo -->
+      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-01.jpg">
+        <img src="images/galeria-01.jpg" alt="Sofá cama modelo 1">
+      </figure>
+      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-02.jpg">
+        <img src="images/galeria-02.jpg" alt="Sofá cama modelo 2">
+      </figure>
+      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-03.jpg">
+        <img src="images/galeria-03.jpg" alt="Sofá cama modelo 3">
+      </figure>
+      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-04.jpg">
+        <img src="images/galeria-04.jpg" alt="Sofá cama modelo 4">
+      </figure>
+      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-05.jpg">
+        <img src="images/galeria-05.jpg" alt="Sofá cama modelo 5">
+      </figure>
+      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-06.jpg">
+        <img src="images/galeria-06.jpg" alt="Sofá cama modelo 6">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== CONFIGURADOR ===================== -->
+  <section id="configurador" class="section section-alt">
+    <h2>Arme el suyo</h2>
+    <p class="section-subtitle">Escoja el producto y las características, vea cómo se ve, y le enviamos su selección directo por WhatsApp.</p>
+
+    <!-- Pestañas de producto: Sofá cama / Cama. Solo un panel se muestra a la vez (ver script.js) -->
+    <div class="product-tabs" id="product-tabs" role="tablist">
+      <button type="button" class="product-tab active" data-product="sofa" role="tab" aria-selected="true">
+        Sofá cama
+      </button>
+      <button type="button" class="product-tab" data-product="cama" role="tab" aria-selected="false">
+        Cama
+      </button>
+    </div>
+
+    <div class="configurator">
+
+      <!-- Vista previa: fotos reales con overlay de color (mix-blend-mode),
+           tanto para el sofá (3 posiciones) como para la cama (1 foto). -->
+      <div class="configurator-preview">
+        <div class="preview-card">
+          <p class="preview-label" id="preview-label">Sofá cama</p>
+
+          <!-- ============== FOTOS SOFÁ CAMA ==============
+            Una foto real por posición (cerrado / media / completa), en
+            escala de grises con fondo transparente. El color elegido se
+            aplica con un div ".color-overlay" encima usando
+            mix-blend-mode: color — así se ve la tela real (textura,
+            costuras, luces y sombras) teñida del color, en vez de un
+            dibujo plano. Ver detalles en CSS (".couch-wrap").
+          -->
+          <div id="sofa-photo" class="product-photo">
+            <div class="couch-wrap sofa-state" id="state-cerrado" data-sofa-state="cerrado">
+              <img class="couch-photo" src="images/sofa-photos/cerrado.png" alt="Sofá cama cerrado">
+              <div class="color-overlay"></div>
+            </div>
+            <div class="couch-wrap sofa-state" id="state-media" data-sofa-state="media">
+              <img class="couch-photo" src="images/sofa-photos/media.png" alt="Sofá cama con asiento extendido a medias">
+              <div class="color-overlay"></div>
+            </div>
+            <div class="couch-wrap sofa-state" id="state-completa" data-sofa-state="completa">
+              <img class="couch-photo" src="images/sofa-photos/completa.png" alt="Sofá cama extendido como cama completa">
+              <div class="color-overlay"></div>
+            </div>
+          </div>
+
+          <!-- Características incluidas que ya no se muestran como toggles
+               interactivos (la foto es fija): se listan como nota informativa. -->
+          <p class="preview-feature-note">Incluye porta-vasos integrados. Cojines extra y patrón de costuras disponibles — se cotizan y confirman por WhatsApp.</p>
+
+          <!-- ============== FOTO CAMA ==============
+            Una sola foto real (fondo removido, escala de grises). El color
+            elegido se aplica igual que en el sofá: ".color-overlay" con
+            mix-blend-mode: color, recortado con una máscara dedicada que
+            EXCLUYE el colchón (no tiene sentido teñir el colchón envuelto
+            en plástico) — solo se tiñe la estructura/cabecera tapizada.
+          -->
+          <div id="bed-photo" class="product-photo">
+            <div class="couch-wrap is-active">
+              <img class="couch-photo" src="images/bed-photos/cama.png" alt="Cama tapizada">
+              <div class="color-overlay" id="bed-color-overlay"></div>
+            </div>
+          </div>
+
+          <p class="preview-feature-note">Estilo de cabecera mostrado: canaletas verticales. Otros estilos de costura disponibles — se cotizan y confirman por WhatsApp.</p>
+        </div>
+      </div>
+
+      <!-- Opciones -->
+      <div class="configurator-options">
+
+
+        <!-- ============ Opciones exclusivas del SOFÁ CAMA ============ -->
+        <div id="sofa-only-options">
+
+          <!-- Estado: Cerrado / Media extensión / Cama completa -->
+          <fieldset class="option-group">
+            <legend>Posición</legend>
+            <div class="radio-row" id="state-options">
+              <label class="radio-pill">
+                <input type="radio" name="sofa-state" value="cerrado" checked>
+                <span>Cerrado</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="sofa-state" value="media">
+                <span>Extendido</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="sofa-state" value="completa">
+                <span>Cama completa</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- ============ Opciones exclusivas de la CAMA ============
+             (por ahora ninguna: el estilo de cabecera se define en la nota
+             informativa debajo de la foto, no como selector interactivo) -->
+        <div id="cama-only-options"></div>
+
+        <!-- Color (compartido; las muestras cambian según la tela escogida).
+             Va ANTES que "Tipo de tela" a propósito: en pantallas angostas
+             (mobile) el usuario ve primero el color, que es la decisión
+             visualmente más relevante, y el tipo de tela queda justo debajo. -->
+        <fieldset class="option-group">
+          <legend>Color</legend>
+          <!-- Reemplace luego: cada muestra puede usar imagen de tela real en vez de color plano -->
+          <div class="color-swatches" id="color-swatches"></div>
+          <p class="color-name" id="color-name-label"></p>
+        </fieldset>
+
+        <!-- Tipo de tela (compartido) -->
+        <fieldset class="option-group">
+          <legend>Tipo de tela</legend>
+          <div class="radio-row" id="fabric-options">
+            <label class="radio-pill">
+              <input type="radio" name="fabric" value="microfibra" checked>
+              <span>Microfibra</span>
+            </label>
+            <label class="radio-pill">
+              <input type="radio" name="fabric" value="microcuero">
+              <span>Microcuero</span>
+            </label>
+            <label class="radio-pill">
+              <input type="radio" name="fabric" value="cuero">
+              <span>Cuero</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Precio estimado -->
+        <div class="price-box">
+          <span>Total estimado</span>
+          <strong id="price-total">₡185.000</strong>
+        </div>
+
+        <a href="#contacto" id="whatsapp-configurator-btn" class="btn btn-primary btn-whatsapp">
+          Consultar esta combinación por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MEDIDAS (FAQ) ===================== -->
+  <!-- TODO: los valores en cm son PLACEHOLDER — reemplazar por las medidas
+       reales de cada modelo antes de publicar. -->
+  <section id="medidas" class="section">
+    <h2>Medidas</h2>
+    <p class="section-subtitle">Referencia rápida de tamaños disponibles. Confirme la medida exacta de su modelo por WhatsApp.</p>
+    <div class="faq-grid">
+      <div class="faq-card">
+        <h3>Sofá cama — Queen</h3>
+        <ul>
+          <li>Ancho: 190 cm</li>
+          <li>Profundidad (cerrado): 95 cm</li>
+          <li>Alto respaldo: 90 cm</li>
+          <li>Cama extendida: 190 × 150 cm</li>
+        </ul>
+      </div>
+      <div class="faq-card">
+        <h3>Sofá cama — Full</h3>
+        <ul>
+          <li>Ancho: 175 cm</li>
+          <li>Profundidad (cerrado): 90 cm</li>
+          <li>Alto respaldo: 88 cm</li>
+          <li>Cama extendida: 175 × 135 cm</li>
+        </ul>
+      </div>
+      <div class="faq-card">
+        <h3>Cama tapizada — Queen</h3>
+        <ul>
+          <li>Base: 160 × 200 cm</li>
+          <li>Alto cabecera: 110 cm</li>
+          <li>Alto base: 35 cm</li>
+        </ul>
+      </div>
+      <div class="faq-card">
+        <h3>Cama tapizada — Full</h3>
+        <ul>
+          <li>Base: 135 × 190 cm</li>
+          <li>Alto cabecera: 105 cm</li>
+          <li>Alto base: 35 cm</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ENTREGA ===================== -->
+  <section id="entrega" class="section">
+    <h2>Entrega</h2>
+    <div class="delivery-grid">
+      <div class="delivery-card">
+        <h3>Entrega estándar</h3>
+        <p>De 7 a 15 días hábiles después de confirmar su pedido.</p>
+      </div>
+      <div class="delivery-card">
+        <h3>Entrega urgente</h3>
+        <p>Disponible en 3 días. El precio de la entrega urgente se cotiza aparte, según su ubicación.</p>
+      </div>
+      <div class="delivery-card">
+        <h3>Disponibilidad inmediata</h3>
+        <p>¿Necesita uno ya? Pregúntenos por WhatsApp si tenemos modelos disponibles de una vez.</p>
+      </div>
+      <div class="delivery-card">
+        <h3>Pago contra entrega</h3>
+        <p>No se requiere pago por adelantado. Usted paga cuando reciba su mueble en casa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section id="contacto" class="section section-alt contact-section">
+    <h2>Contáctenos</h2>
+    <p class="section-subtitle">Escríbanos por WhatsApp y con gusto le ayudamos.</p>
+
+    <!-- Este botón lleva un mensaje genérico (no la selección del configurador,
+         ver WHATSAPP_GENERIC_MESSAGE en script.js). El href de acá es un
+         fallback estático por si JS no cargó todavía. -->
+    <a id="whatsapp-main-btn" class="btn btn-whatsapp btn-large" href="https://wa.me/50686245630?text=Hola%2C%20busco%20m%C3%A1s%20informaci%C3%B3n%20de%20los%20muebles." target="_blank" rel="noopener">
+      Escribir por WhatsApp
+    </a>
+
+    <p class="contact-alt">
+      También puede escribirnos a
+      <a href="mailto:tallerpalma.cr@gmail.com">tallerpalma.cr@gmail.com</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Taller Palma. Hecho con cariño en Costa Rica.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
