@@ -365,7 +365,64 @@
   }
 
   /* -----------------------------------------------------------
-     13. INICIALIZACIÓN
+     13. FICHA TÉCNICA DE GALERÍA
+     Al hacer clic en una foto de "Proyectos entregados" se abre un
+     modal con los datos del data-* de ese <button> (tamaño,
+     estructura, tapizado, altura). Si un dato no aplica (p. ej.
+     "altura" en un sofá cama) se pasa "—" y esa fila se oculta.
+  ----------------------------------------------------------- */
+  function setupGalleryModal() {
+    const modal = document.getElementById("gallery-modal");
+    if (!modal) return;
+
+    const modalImg = document.getElementById("gallery-modal-img");
+    const modalTitle = document.getElementById("gallery-modal-title");
+    const fields = {
+      tamano: document.getElementById("gallery-modal-tamano"),
+      estructura: document.getElementById("gallery-modal-estructura"),
+      tapizado: document.getElementById("gallery-modal-tapizado"),
+      altura: document.getElementById("gallery-modal-altura"),
+    };
+
+    function openModal(item) {
+      const img = item.querySelector("img");
+      modalImg.src = img ? img.src : "";
+      modalImg.alt = img ? img.alt : "";
+      modalTitle.textContent = item.dataset.title || "";
+
+      Object.keys(fields).forEach(function (key) {
+        const value = item.dataset[key] || "—";
+        const row = fields[key].closest("div");
+        fields[key].textContent = value;
+        row.classList.toggle("spec-hidden", value === "—");
+      });
+
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".gallery-item").forEach(function (item) {
+      item.addEventListener("click", function () {
+        openModal(item);
+      });
+    });
+
+    modal.querySelectorAll("[data-close-modal]").forEach(function (el) {
+      el.addEventListener("click", closeModal);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.hidden) closeModal();
+    });
+  }
+
+  /* -----------------------------------------------------------
+     14. INICIALIZACIÓN
   ----------------------------------------------------------- */
   function init() {
     renderColorSwatches();
@@ -374,6 +431,7 @@
     updatePriceTotal();
     updateWhatsappLinks();
     setupImagePlaceholders();
+    setupGalleryModal();
   }
 
   init();

@@ -39,31 +39,82 @@
 
   <!-- ===================== GALERÍA ===================== -->
   <section id="galeria" class="section">
-    <h2>Nuestros trabajos</h2>
-    <p class="section-subtitle">Algunos de los sofás cama y camas tapizadas que hemos entregado a clientes.</p>
+    <h2>Proyectos entregados</h2>
+    <p class="section-subtitle">Algunos de los sofás cama y camas tapizadas que hemos entregado a clientes. Haga clic en una foto para ver los detalles.</p>
 
     <div class="gallery-grid">
-      <!-- Reemplace cada imagen por fotos reales del producto, mismo nombre de archivo -->
-      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-01.jpg">
+      <!-- Reemplace cada imagen por fotos reales del producto, mismo nombre de archivo.
+           Los data-* traen la ficha técnica que se muestra al hacer clic (ver script.js).
+           Ajuste estos valores a las medidas y materiales reales de cada pieza entregada. -->
+      <button type="button" class="gallery-item img-placeholder" data-placeholder-text="images/galeria-01.jpg"
+        data-title="Sofá cama modelo 1"
+        data-tamano="Queen — 190 × 95 cm (cama extendida 190 × 150 cm)"
+        data-estructura="Madera de pino tratada"
+        data-tapizado="Microfibra café chocolate"
+        data-altura="—">
         <img src="images/galeria-01.jpg" alt="Sofá cama modelo 1">
-      </figure>
-      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-02.jpg">
+      </button>
+      <button type="button" class="gallery-item img-placeholder" data-placeholder-text="images/galeria-02.jpg"
+        data-title="Sofá cama modelo 2"
+        data-tamano="Full — 175 × 90 cm (cama extendida 175 × 135 cm)"
+        data-estructura="Madera de pino tratada"
+        data-tapizado="Microcuero gris perla"
+        data-altura="—">
         <img src="images/galeria-02.jpg" alt="Sofá cama modelo 2">
-      </figure>
-      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-03.jpg">
-        <img src="images/galeria-03.jpg" alt="Sofá cama modelo 3">
-      </figure>
-      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-04.jpg">
-        <img src="images/galeria-04.jpg" alt="Sofá cama modelo 4">
-      </figure>
-      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-05.jpg">
-        <img src="images/galeria-05.jpg" alt="Sofá cama modelo 5">
-      </figure>
-      <figure class="gallery-item img-placeholder" data-placeholder-text="images/galeria-06.jpg">
-        <img src="images/galeria-06.jpg" alt="Sofá cama modelo 6">
-      </figure>
+      </button>
+      <button type="button" class="gallery-item img-placeholder" data-placeholder-text="images/galeria-03.jpg"
+        data-title="Cama tapizada modelo 1"
+        data-tamano="Queen — base 160 × 200 cm, cabecera 110 cm de alto"
+        data-estructura="Madera de pino tratada"
+        data-tapizado="Cuero café tostado, costura de canaletas verticales"
+        data-altura="35 cm de piso a colchón">
+        <img src="images/galeria-03.jpg" alt="Cama tapizada modelo 1">
+      </button>
+      <button type="button" class="gallery-item img-placeholder" data-placeholder-text="images/galeria-04.jpg"
+        data-title="Cama tapizada modelo 2"
+        data-tamano="Full — base 135 × 190 cm, cabecera 105 cm de alto"
+        data-estructura="Madera de pino tratada"
+        data-tapizado="Microfibra beige arena"
+        data-altura="35 cm de piso a colchón">
+        <img src="images/galeria-04.jpg" alt="Cama tapizada modelo 2">
+      </button>
+      <button type="button" class="gallery-item img-placeholder" data-placeholder-text="images/galeria-05.jpg"
+        data-title="Sofá cama modelo 3"
+        data-tamano="Queen — 190 × 95 cm (cama extendida 190 × 150 cm)"
+        data-estructura="Madera de pino tratada"
+        data-tapizado="Cuero camel"
+        data-altura="—">
+        <img src="images/galeria-05.jpg" alt="Sofá cama modelo 3">
+      </button>
+      <button type="button" class="gallery-item img-placeholder" data-placeholder-text="images/galeria-06.jpg"
+        data-title="Cama tapizada modelo 3"
+        data-tamano="Queen — base 160 × 200 cm, cabecera 110 cm de alto"
+        data-estructura="Madera de pino tratada"
+        data-tapizado="Microcuero gris perla"
+        data-altura="35 cm de piso a colchón">
+        <img src="images/galeria-06.jpg" alt="Cama tapizada modelo 3">
+      </button>
     </div>
   </section>
+
+  <!-- Modal de ficha técnica: se llena dinámicamente en script.js al hacer
+       clic en una foto de la galería. -->
+  <div id="gallery-modal" class="gallery-modal" hidden>
+    <div class="gallery-modal-backdrop" data-close-modal></div>
+    <div class="gallery-modal-card" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
+      <button type="button" class="gallery-modal-close" data-close-modal aria-label="Cerrar">&times;</button>
+      <img class="gallery-modal-img" id="gallery-modal-img" src="" alt="">
+      <div class="gallery-modal-info">
+        <h3 id="gallery-modal-title"></h3>
+        <dl class="gallery-modal-specs">
+          <div><dt>Tamaño</dt><dd id="gallery-modal-tamano"></dd></div>
+          <div><dt>Material de la estructura</dt><dd id="gallery-modal-estructura"></dd></div>
+          <div><dt>Material del tapizado</dt><dd id="gallery-modal-tapizado"></dd></div>
+          <div><dt>Altura de piso a colchón</dt><dd id="gallery-modal-altura"></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
 
   <!-- ===================== CONFIGURADOR ===================== -->
   <section id="configurador" class="section section-alt">
